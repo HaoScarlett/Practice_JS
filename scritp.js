@@ -14,25 +14,29 @@ function randomNum() {
 
 function changeDice(className, number) {
     console.log("Random number:", number); // Debugging line
-    if (number === 1) {
-        className.src = 'images/dice1.png';
+    
+    switch (number) {
+        case 1:
+            className.src = 'images/dice1.png';
+            break;
+        case 2:
+            className.src = 'images/dice2.png';
+            break;
+        case 3:
+            className.src = 'images/dice3.png';
+            break;
+        case 4:
+            className.src = 'images/dice4.png';
+            break;
+        case 5:
+            className.src = 'images/dice5.png';
+            break;
+        case 6:
+            className.src = 'images/dice6.png';
+            break;
     }
-    else if (number === 2) {
-        className.src = 'images/dice2.png';
-    }
-    else if (number === 3) {
-        className.src = 'images/dice3.png';
-    }
-    else if (number === 4) {
-        className.src = 'images/dice4.png';
-    }
-    else if (number === 5) {
-        className.src = 'images/dice5.png';
-    }
-    else if (number === 6) {
-        className.src = 'images/dice6.png';
-    }
-};
+}
+
 
 refreshBtn.addEventListener('click', function () {
     let generatedNum1 = randomNum();
