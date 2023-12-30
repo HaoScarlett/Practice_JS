@@ -11,7 +11,7 @@ var removeDuplicates = function (nums) {
           if (nums[i] === nums[writePointer]) {
             nums[writePointer] = nums[writePointer];
           } else if (nums[i] !== nums[writePointer]) {
-            nums[writePointer++] = nums[i];
+            nums[writePointer] = nums[i];
           }
         }
         return writePointer;
