@@ -8,9 +8,9 @@ var removeDuplicates = function (nums) {
     }
     else {
         for (let i = 1; i < nums.length; i++) {
-          if (i === writePointer) {
+          if (nums[i] === nums[writePointer]) {
             nums[writePointer] = nums[writePointer];
-          } else if (i !== writePointer) {
+          } else if (nums[i] !== nums[writePointer]) {
             nums[writePointer++] = nums[i];
           }
         }
