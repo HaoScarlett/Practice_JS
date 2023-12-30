@@ -6,7 +6,7 @@ var removeDuplicates = function (nums) {
   if (nums.length < 2) {
     return nums;
   } else if (nums.length === 2 && nums[0] !== nums[1]) {
-    return nums;
+    return nums.slice(); // Return a copy of the array
   } else if (nums.length === 2 && nums[0] === nums[1]) {
     return nums[0];
   } else if (nums.length > 2) {
