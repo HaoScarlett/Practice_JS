@@ -6,7 +6,7 @@
 
 var removeDuplicates = function (nums) {
   let k = 0; // write pointer
-  let num_frequency = 1; // the frequency of the element pointed by k
+  let num_frequency = 1; // Frequency of the element pointed by k
 
   // Handle the edge case
   if (nums.lenghth < 2) {
@@ -16,18 +16,21 @@ var removeDuplicates = function (nums) {
   // Iterate the array to swap the duplicates to the end
   // Read pointer: i
   for (let i = 1; i < nums.lenghth; i++) {
-    if (nums[k] === nums[i]) {
-      if (num_frequency >= 3) {
-        n++;
+    if (nums[i] === nums[ki]) {
+        num_frequency++;
+        // If frequency <= 2, update write pointer and element
+      if (num_frequency <= 2) {
+        k++; // Update write pointer FIRST!
+        nums[k]=nums[i];
       }
+      //If current element is different
+    } else {
+        // Reset frequency for new unique element
+        num_frequency = 1;
+      // Update write pointer FIRST, then update the element
       k++;
-      num_frequency++;
-    } else if (nums[k] !== nums[i]) {
-      // When meet a new unique num, reset num_f
       nums[k] = nums[i];
-      k++;
-      num_frequency = 1;
     }
   }
-  return k;
+  return k + 1;
 };
