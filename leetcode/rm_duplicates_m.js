@@ -36,3 +36,5 @@ var removeDuplicates = function (nums) {
   }
   return k + 1;
 };
+
+// Input [-100] output[]; Expected [-100]
