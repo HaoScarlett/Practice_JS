@@ -16,14 +16,15 @@ var removeDuplicates = function (nums) {
   // Iterate the array to swap the duplicates to the end
   // Read pointer: i
   for (let i = 1; i < nums.lenghth; i++) {
-    if (nums[k] === nums[i]) {
-      if (num_frequency < 2) {
-        num_frequency++;
-        k++;} 
-        else if (nums[k] !== nums[i] && counter > 2) {
+    if (nums[k] === nums[i] && num_frequency < 2) {
+      num_frequency++;
       k++;
+    } else if ( num_frequency > 2) {
+        if(nums[k] !== nums[i])
+    //   k++;
       nums[k] = nums[i];
       num_frequency = 1;
+      k++;
     }
   }
   return k;
