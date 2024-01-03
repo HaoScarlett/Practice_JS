@@ -9,8 +9,11 @@ var removeDuplicates = function (nums) {
   let numFrequency = 1; // Frequency of the element pointed by k
 
   // Handle the edge case
-  if (nums.length < 2) {
-    return nums;
+  // [-100]
+  for (let j of nums){
+      if (nums.length < 2) {
+        return nums;
+      }
   }
 
   // Iterate the array to swap the duplicates to the end
