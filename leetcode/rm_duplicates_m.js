@@ -10,11 +10,15 @@ var removeDuplicates = function (nums) {
 
   // Handle the edge case
   // [-100]
-  for (let j of nums){
-      if (nums.length < 2) {
-        return nums;
-      }
+  if (nums.length <= 2) {
+    return nums;
   }
+
+//   for (let j of nums) {
+//     if (Number.isInteger(nums[j]) !== true) {
+//       return nums;
+//     }
+//   }
 
   // Iterate the array to swap the duplicates to the end
   // Read pointer: i
@@ -40,4 +44,3 @@ var removeDuplicates = function (nums) {
   return k + 1;
 };
 
-// Input [-100] output[]; Expected [-100]
