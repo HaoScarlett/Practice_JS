@@ -12,31 +12,30 @@ var isSubsequence = function (s, t) {
 
     // Iterate through t to store every element and its indice
     for (let i = 0; i < str.length; ) {
-        const char = str[i];
-        if(!index[char]){
-            index[char]=[];
-        }
-        index[char].push(i); // Store the position of an element
+      const char = str[i];
+      if (!index[char]) {
+        index[char] = [];
+      }
+      index[char].push(i); // Store the position of an element
     }
     return index;
   }
 
   const tIndex = createIndex(t);
   let tElementIndex = [];
-//   Look up the character in s and find its position in t
-  for (let j = 0; j<s.length;j++){
-    if(s[j] in tIndex === false){
-        return false;
+  //   Look up the character in s and find its position in t
+  for (let j = 0; j < s.length; j++) {
+    if (s[j] in tIndex === false) {
+      return false;
     }
-    tElementIndex.push(tIndex['s[j]'][0])
+    tElementIndex.push(tIndex[s[j]][0]);
   }
 
-//   Check the ralative positions of the remaining characters
-  for(let n = 0; n<tElementIndex.length;n++){
-    if (tElementIndex[n]>tElementIndex[n+1]){
-        return false;
+  //   Check the ralative positions of the remaining characters
+  for (let n = 0; n < tElementIndex.length; n++) {
+    if (tElementIndex[n] > tElementIndex[n + 1]) {
+      return false;
     }
   }
   return true;
-
 };
