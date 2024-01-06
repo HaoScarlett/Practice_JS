@@ -5,23 +5,15 @@ var rotate = function (nums, k) {
   if (k <= 0) {
     return nums;
   }
-  // Create an empty arr to store the rotated nums
-  let rotatedArr = [];
-
-  // Iterate through two string simultaneously
-  // Write pointer of rotatedArr start from index k
+  // Write pointer starts from index k
+  // Read pointer i starts from index 0
   for (let i = 0; i < nums.length; i++) {
-    for (let j = k; j < nums.length; j++) {
-      // When i <= k, rotatedArr write nums[i]
-      if (i <= k) {
-        rotatedArr[j] = nums[i];
-      }
-      // When i > k, nums[i-k-1] = nums[i]
-      else{
-            j=0;
-          rotatedArr[i - k - 1] = nums[i];
-      }
+    // When i<=k, nums[k] = nums[i]
+    if (i <= k) {
+      nums[k] = nums[i];
+      k++;
     }
+    // When i > k, nums[i-k-1] = nums[i]
+    nums[i - k - 1] = nums[i];
   }
-  return rotatedArr;
 };
