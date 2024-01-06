@@ -8,13 +8,12 @@ var rotate = function (nums, k) {
   // Write pointer starts from index k%nums.length
   // Read pointer i starts from index 0
   let writer = k % nums.length;
-  let rotatedArr = [];
   for (let i = 0; i < nums.length; i++) {
     if (i <= writer) {
-        rotatedArr[writer] = nums[i];
+      nums[writer] = nums[i];
       writer++;
     }
-    rotatedArr[i - writer - 1] = nums[i];
+    nums[i - writer - 1] = nums[i];
   }
-  nums = rotatedArr;
+
 };

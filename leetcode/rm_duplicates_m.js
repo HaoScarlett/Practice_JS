@@ -10,9 +10,9 @@ var removeDuplicates = function (nums) {
 
   // Handle the edge case
   // [-100]
-  if (nums.length <= 2) {
-    return nums;
-  }
+//   if (nums.length <= 2) {
+//     return nums;
+//   }
 
 //   for (let j of nums) {
 //     if (Number.isInteger(nums[j]) !== true) {

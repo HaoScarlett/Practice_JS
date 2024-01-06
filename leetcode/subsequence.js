@@ -5,13 +5,17 @@
 // Iterate through s to look up its position in t
 
 var isSubsequence = function (s, t) {
+  if (s.length === 0) {
+    return true; // An empty string is always a subsequence
+  }
+
   // Create an object to store characters and their indices in t
   function createIndex(str) {
     // Initiate the indexT object
     const index = {};
 
     // Iterate through t to store every element and its indice
-    for (let i = 0; i < str.length; ) {
+    for (let i = 0; i < str.length; i++) {
       const char = str[i];
       if (!index[char]) {
         index[char] = [];
@@ -22,19 +26,25 @@ var isSubsequence = function (s, t) {
   }
 
   const tIndex = createIndex(t);
-  let tElementIndex = [];
+  let prevIndex = -1; // To track indices of characters in t
+
   //   Look up the character in s and find its position in t
   for (let j = 0; j < s.length; j++) {
-    if (s[j] in tIndex === false) {
-      return false;
+    const char = s[j];
+    if (!tIndex[char]) {
+      return false; // If an element in s in not found in t
     }
-    tElementIndex.push(tIndex[s[j]][0]);
-  }
-
-  //   Check the ralative positions of the remaining characters
-  for (let n = 0; n < tElementIndex.length; n++) {
-    if (tElementIndex[n] > tElementIndex[n + 1]) {
-      return false;
+    // Find the first index of the character in t that is greater than the previous one
+    let found = false;
+    for (const index of tIndex[char]) {
+      if (index > prevIndex) {
+        prevIndex = index;
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      return false; // If no index in t is greater than the previous one
     }
   }
   return true;
