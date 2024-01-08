@@ -1,11 +1,17 @@
 // 189. Rotate Array
 
 var rotate = function (nums, k) {
-  // Store two parts of arr seperately
   const length = nums.length;
-  k = k % length; // Ensure k is within the array's bounds
-  let backwardArr = nums.slice(0, k);
-  let forwardArr = nums.slice(k);
+  // Ensure k is within the array's bounds
+  k = k % length;
+  // Store two parts of arr seperately
+  let backwardArr = nums.slice(0, length - k);
+  let forwardArr = nums.slice(length - k);
+  // Clear nums array
+  nums.length = 0;
   // Switch their positions to rotate the elements
-  return nums = forwardArr.concat(backwardArr);
+  nums.push(...forwardArr);
+  nums.push(...backwardArr);
+
+  return nums;
 };
