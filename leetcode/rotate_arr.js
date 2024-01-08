@@ -1,19 +1,10 @@
 // 189. Rotate Array
 
 var rotate = function (nums, k) {
-  // If k <= 0, return nums
-  if (k <= 0) {
-    return nums;
-  }
-  // Write pointer starts from index k%nums.length
-  // Read pointer i starts from index 0
-  let writer = k % nums.length;
-  for (let i = 0; i < nums.length; i++) {
-    if (i <= writer) {
-      nums[writer] = nums[i];
-      writer++;
-    }
-    nums[i - writer - 1] = nums[i];
-  }
-
+ // Store two parts of arr seperately
+  const length = nums.length;
+  let backwardArr = [nums[0],...nums[k]];
+  let forwardArr = [nums[length - k],...nums[length - 1]];
+ // Switch their positions to rotate the elements
+  nums = [forwardArr, backwardArr];
 };
