@@ -52,4 +52,9 @@ function btnAnimation(currentKey) {
   // You need to store them in a variable
   const activeButton = document.querySelector("." + currentKey);
   activeButton.classList.add("pressed");
+
+  // Animation 
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
