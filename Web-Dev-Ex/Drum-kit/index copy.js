@@ -48,3 +48,8 @@ function playSound(key) {
   }
 }
 
+function btnAnimation(currentKey) {
+  // You need to store them in a variable
+  const activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+}
