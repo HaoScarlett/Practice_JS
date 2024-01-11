@@ -1,13 +1,14 @@
 // 169. Majority ELement
 
 var majorityElement = function (nums) {
-  //   Handle the edge case
-//   if (nums.length < 2) {
-//     return nums;
-//   }
-
   // Sort nums first
   nums.sort();
+
+  //   Handle the edge case
+  if (nums[0] === nums[nums.length - 1]) {
+    return nums;
+  }
+
   // Count the frequency of an element in nums
   let counter = 0;
   let comparePointer = 0;
@@ -24,4 +25,3 @@ var majorityElement = function (nums) {
     }
   }
 };
-
