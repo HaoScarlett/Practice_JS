@@ -23,6 +23,5 @@ var majorityElement = function (nums) {
       return nums[comparePointer];
     }
   }
-  return nums;
 };
 
