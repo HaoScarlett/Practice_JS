@@ -14,6 +14,6 @@ var maxProfit = function (prices) {
     } else {
       currentProfit = prices[i] - prices[currentDay];
     }
-    return currentProfit;
-  }
+}
+return currentProfit;
 };
