@@ -6,10 +6,10 @@ var canJump = function (nums) {
     if (i + nums[i] > farthest) {
       // Update the farthest position if the current position plus the length is
       // greater than the current farthest position
-      farthest = nums[i]; //👈🏼 BUG is here. When i = 4;
+      farthest = nums[i] + farthest;
     }
     // If farthest position is greater or equal to the last index, return true;
-    if (farthest >= nums.length - 1) {
+    if (farthest >= nums.length - 1 && farthest < nums.length) {
       return true;
     }
     // If the loop ends and farthest position doesn't reach the last index, return false.
