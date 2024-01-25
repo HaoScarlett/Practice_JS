@@ -20,3 +20,4 @@ var jump = function (nums) {
   }
   return minJump[minJump.length - 1];
 };
+// Runtime: 885 ms, among slowest 6%. 
