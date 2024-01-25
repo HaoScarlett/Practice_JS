@@ -13,7 +13,7 @@ var jump = function (nums) {
     const maxJump = nums[i];
     for (let j = 1; 1 <= j && j <= i + maxJump; j++) {
       //   check if the jump from position j can reach the current position i.
-      if (j + nums[j] > i + maxJump) {
+      if (i + nums[i] >= j) {
         minJump[j] = Math.min(minJump[j], minJump[i] + 1);
       }
     }
