@@ -11,7 +11,7 @@ var jump = function (nums) {
 
   while (right < nums.length - 1) {
     let farthest = 0;
-    for (let i = 1; i <= right; i++) {
+    for (let i = left; i <= right; i++) {
       farthest = Math.max(farthest, nums[i] + i);
     }
     left = right + 1;
