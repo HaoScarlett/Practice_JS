@@ -14,8 +14,9 @@ var hIndex = function (citations) {
 
   citations.sort((a, b) => b - a);
 
+  let hIndex = 0;
+  
   for (let i = 0; i < citations.length - 1; i++) {
-    const hIndex = 0;
     if (citations[i] >= citations.length) {
       hIndex++;
     }
