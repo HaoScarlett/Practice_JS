@@ -7,9 +7,14 @@ var hIndex = function (citations) {
   // count each papers citations with current papers
   // Only increment hIndex when citations is greater than papers
   let hIndex = 0;
-  for (let i = 0; i < citations.length; i++) {
-    if (citations[i] >= i + 1) {
-      hIndex++;
+  let numOfPaper = citations.length+1;
+  for (let i = 0; i < numOfPaper; i++) {
+    if (citations[i] === 0) {
+      numOfPaper--;
+    } else {
+      if (citations[i] >= numOfPaper) {
+        hIndex++;
+      }
     }
   }
   return hIndex;
