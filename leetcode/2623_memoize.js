@@ -1,7 +1,6 @@
 // 2623. Memoize
 // Let's build a helper machine
 // Memoization only works correctly for pure functions
-// Inputs are limited to 3 fns all with numeric inputs.
 // Mind the memory, you could call the fn with dif inputs indefinitely.
 
 // Check if the answer has already knew before call fns
@@ -19,50 +18,28 @@ For "getCallCount", provide the num of times a specific fn has been called
 - "getCallCount", return the corresponding num of times
 */
 
-/*
--"fnName", decide which fn to use
--Implement the logic for each fn
- */
-
-/*
--Go through each action and perform required operation
--Keep track of the results and call counts for each fn
- */
-// def memoization(actions,values)
 function memoize(fn) {
-    let memo = {};
-    let call_counts = {
-        "sum": 0,
-        "fib": 0,
-        "factorial":0
+  let memo = {};
+  //   let call_counts = {
+  //     sum: 0,
+  //     fib: 0,
+  //     factorial: 0,
+  //   };
+  return function (...args) {
+    // Convert the arr of arguments into a string to use as a memo key
+    const key = JSON.stringify(args);
+
+    // Check if the result if already in the memo
+    // if (action === "call") {
+    // checke memoization
+    if (memo.hasOwnProperty(key)) {
+      return memo[key];
+    } else {
+      // call the fn and update memoization
+      const result = fn(...args);
+      // Update call count
+      memo[key] = result;
+      return result;
     }
-
-    for(let i = 0; i < actions.length; i++){
-        let action = actions[i];
-        let fn_name = values[i];
-
-        if(action === "call"){
-            // checke memoization
-            if(fn_name, values[i+1] in memo){
-                result = memo[(fn_name, values[i+1])]
-            }
-            else{
-                // call the fn and update memoization
-                result = calculate_result(fn_name, values[i+1],memo);
-                memo[(fn_name, values[i+1])] = result;
-            }
-            // Update call count
-            call_counts[fn_name]+=1;
-
-            // Skip the next value as it was the input for the 'call' 
-            i+=1
-        }
-        else if (action === "getCallCount"){
-            result = call_counts[fn_name];
-        }
-    }
-
-
-
-  return function (...args) {};
+  };
 }
