@@ -24,9 +24,8 @@ const poll = {
     //   Debugger
     //   console.log(inputNum);
     // 1.2 Check the input type and range
-    if (typeof inputNum === "number" && inputNum < this.options.length) {
-      this.answers[inputNum]++;
-    }
+    typeof inputNum === "number" && inputNum < this.options.length && this.answers[inputNum]++;
+    
     // 4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
     this.displayResults();
     this.displayResults("string");
