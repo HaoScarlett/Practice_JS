@@ -6,34 +6,36 @@ var canCompleteCircuit = function (gas, cost) {
   // Edge case
   // gas.length === cost.length === 1
 
-  let totalCost = 0;
+  let currentCost = [];
   let totalGas = gas.length; // The total amount of gas stations
-  //   Fill the tank in starting point
-  let gasInTank = 0;
+  //  Store the total currentGasInTank for each starting point
+  let currentGasInTank = [];
+  let totalGasInTank = 0;
+  let totalCost = 0;
 
   // Iterate the gas array in the clockwise direction
   // Check every gas station while keep tracking total gas and cost for the current subarray.
   let i;
   for (i = 0; i < totalGas; i++) {
-    // if (gas[i] > totalCost) {
-    gasInTank = gasInTank + gas[i];
-    totalCost = totalCost + cost[i];
-    gasInTank = gasInTank - totalCost;
-    //   move++;
-    // }
+    currentGasInTank[0] = gas[i];
+    currentGasInTank[i+1] = currentGasInTank + gas[i+1];
+    currentCost[i+1] = cost[i];
+    totalGasInTank = currentGasInTank.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    totalCost = currentCost.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    totalGasInTank = totalGasInTank - totalCost;
     // Check the starting point
     // If at any point, the total gas becomes negative, reset the starting station to the next one.
-    if (gasInTank < 0) {
+    if (totalGasInTank < 0) {
       // if the array has n elements and you are at index i,
       // the next index in the clockwise direction would be (i + 1) % n.
       i = (i + 1) % totalGas;
 
-      //  🟡 You should reset gasInTank and totalCost as you're starting a new subarray.
-      gasInTank = 0;
-      totalCost = 0;
+      //  🟡 You should reset currentGasInTank and currentCost as you're starting a new subarray.
+      currentGasInTank = [];
+      currentCost = [];
     }
   }
-  // if (gasInTank < 0) {
+  // if (currentGasInTank < 0) {
   //   return -1;
   // } else {
   return i;
