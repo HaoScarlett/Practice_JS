@@ -26,6 +26,11 @@ var canCompleteCircuit = function (gas, cost) {
       currentGasInTank = 0;
     }
   }
+  // If the total gas is not enough to complete the circuit, return -1.
+  if (totalGasInTank < 0) {
+    return -1;
+  }
+
   // Check if it's possible to travel around the circuit
-  return totalGasInTank >= totalCost ? (startingIndex % totalGas) : -1;
+  return (startingIndex % totalGas);
 };
