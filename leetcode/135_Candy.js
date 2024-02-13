@@ -4,10 +4,7 @@
 // 🐥 maitain the "more candies than neighbors" while minimizing candy usage
 
 // Each children receives at least one candy.
-// Initialize the distribution by starting giving one candy to each childe
-
-// Decreasing or equal ratings: consider the candies already given to their
-// neighbors and adjust accodingly to maintain the 2rd condition
+// Initialize the distribution by starting giving one candy to each child
 
 var candy = function (ratings) {
   let n = ratings.length;
@@ -26,8 +23,19 @@ var candy = function (ratings) {
   let candies = new Array(n).fill(0);
   // Iterate through the line of childre, giving them candies one by one.
   for (let i = 0; i < n - 1; i++) {
-    // Increasing rating, when encounter a child with a higher rating than the
-    // previous one, give them one more.
-    
+    // Increasing rating,
+    candies[i] = 1;
+    if (ratings[i] > ratings[i - 1]) {
+      // when encounter a child with a higher rating than the previous one, give them one more.
+      candies[i]++;
+    }
+    // Decreasing or equal ratings: consider the candies already given to their
+    // neighbors and adjust accodingly to maintain the 2rd condition
+    if (ratings[i] > ratings[i + 1]) {
+      candies[i]++;
+      if (candies[i] === candies[i - 1]) {
+        candies[i - 1]++; // or while loop?
+      }
+    }
   }
 };
