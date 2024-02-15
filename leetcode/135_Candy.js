@@ -20,25 +20,30 @@ var candy = function (ratings) {
   }
 
   // Initialize candies arr to track distributed candies.
-  let candies = new Array(n).fill(0);
   // Iterate through the line of childre, giving them candies one by one.
-  for (let i = 0; i < n; i++) {
-    // Increasing rating,
-    candies[i] = 1;
-    if (ratings[i] > ratings[i - 1]) {
-      // when encounter a child with a higher rating than the previous one, give them one more.
-      candies[i]++;
-    }
-    // Decreasing or equal ratings: consider the candies already given to their
-    // neighbors and adjust accodingly to maintain the 2rd condition
-    if (ratings[i] < ratings[i - 1]) {
-      // candies[i]++;
-      if (candies[i] === candies[i - 1]) {
-        candies[i - 1]++;
+  let candies = new Array(n).fill(1);
+  let hasChanged = true;
+  while (hasChanged) {
+    hasChanged = false;
+
+    for (let i = 0; i < n; i++) {
+      // Increasing rating,
+      // candies[i] = 1;
+      if (i > 0 && ratings[i] > ratings[i - 1]) {
+        // when encounter a child with a higher rating than the previous one, give them one more.
+        if (candies[i] <= candies[i - 1]) {
+          candies[i] = candies[i - 1] + 1; // You know is previous child's candies
+          hasChanged = true;
+        }
       }
-    }
-    if (ratings[i] === ratings[i - 1]) {
-      candies[i] = 1;
+      // Decreasing or equal ratings: consider the candies already given to their
+      // neighbors and adjust accodingly to maintain the 2rd condition
+      if (i != n - 1 && ratings[i] > ratings[i + 1]) {
+        if (candies[i] <= candies[i + 1]) {
+          candies[i] = candies[i + 1] + 1;
+          hasChanged = true;
+        }
+      }
     }
   }
   const totalSum = candies.reduce(
