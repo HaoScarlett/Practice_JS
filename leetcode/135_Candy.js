@@ -22,7 +22,7 @@ var candy = function (ratings) {
   // Initialize candies arr to track distributed candies.
   let candies = new Array(n).fill(0);
   // Iterate through the line of childre, giving them candies one by one.
-  for (let i = 0; i < n - 1; i++) {
+  for (let i = 0; i < n; i++) {
     // Increasing rating,
     candies[i] = 1;
     if (ratings[i] > ratings[i - 1]) {
