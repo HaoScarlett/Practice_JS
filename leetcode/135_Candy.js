@@ -31,11 +31,14 @@ var candy = function (ratings) {
     }
     // Decreasing or equal ratings: consider the candies already given to their
     // neighbors and adjust accodingly to maintain the 2rd condition
-    if (ratings[i] > ratings[i + 1]) {
-      candies[i]++;
+    if (ratings[i] < ratings[i - 1]) {
+      // candies[i]++;
       if (candies[i] === candies[i - 1]) {
-        candies[i - 1]++; // or while loop?
+        candies[i - 1]++;
       }
+    }
+    if (ratings[i] === ratings[i - 1]) {
+      candies[i] = 1;
     }
   }
   const totalSum = candies.reduce(
