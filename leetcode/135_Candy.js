@@ -38,4 +38,9 @@ var candy = function (ratings) {
       }
     }
   }
+  const totalSum = candies.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  return totalSum;
 };
