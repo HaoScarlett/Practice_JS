@@ -1,5 +1,5 @@
 var candy = function (ratings) {
-    let n = ratings.length;
+  let n = ratings.length;
   // everyone has the same rating
   const allEqual = ratings.every((val, i, arr) => val === arr[0]);
   if (allEqual === true) {
@@ -16,7 +16,7 @@ var candy = function (ratings) {
 
   //   Move backward, move left, when encouter a higher rate, give one more candy
   for (let j = n; j > 0; j--) {
-    if (j > 0 && ratings[j] < ratings[j - 1]) {
+    if (ratings[j] < ratings[j - 1] && candies[j] >= candies[j - 1]) {
       candies[j - 1] = candies[j] + 1;
     }
   }
