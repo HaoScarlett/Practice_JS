@@ -7,5 +7,7 @@
  * @return {number}
  */
 var romanToInt = function (s) {
+    // 🟡 How to represent value by symbols?
+
   // Left to right: if s[i]< s[i+1], num[i] = s[i+1] - s[i], i++;
 };
