@@ -7,7 +7,28 @@
  * @return {number}
  */
 var romanToInt = function (s) {
-    // 🟡 How to represent value by symbols?
+  let total = 0;
+  // 🟡 How to represent value by symbols? -- Mapping
+  const romanToInt_map = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
 
-  // Left to right: if s[i]< s[i+1], num[i] = s[i+1] - s[i], i++;
+  // Left to right: if s[i]< s[i+1], num[i] = s[i+1] - s[i], move the pointer
+  for (const key in romanToInt_map) {
+    const currentPosition = romanToInt_map[s[key]];
+    const nextPosition = romanToInt_map[s[key + 1]];
+    // Check substraction condition
+    if (currentPosition < nextPosition) {
+      total = nextPosition - currentPosition;
+      key++;
+    }
+    total = currentPosition;
+  }
+  return total;
 };
