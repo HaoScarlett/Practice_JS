@@ -20,15 +20,15 @@ var romanToInt = function (s) {
   };
 
   // Left to right: if s[i]< s[i+1], num[i] = s[i+1] - s[i], move the pointer
-  for (const key in romanToInt_map) {
-    const currentPosition = romanToInt_map[s[key]];
-    const nextPosition = romanToInt_map[s[key + 1]];
+  for (let i = 0; i < s.length; i++) {
+    const currentPosition = romanToInt_map[s[i]];
+    const nextPosition = romanToInt_map[s[i + 1]];
     // Check substraction condition
     if (currentPosition < nextPosition) {
-      total = nextPosition - currentPosition;
-      key++;
+      total += nextPosition - currentPosition;
+      i++;
     }
-    total = currentPosition;
+    total += currentPosition;
   }
   return total;
 };
