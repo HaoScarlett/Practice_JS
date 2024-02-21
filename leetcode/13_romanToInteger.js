@@ -27,8 +27,9 @@ var romanToInt = function (s) {
     if (currentPosition < nextPosition) {
       total += nextPosition - currentPosition;
       i++;
+    } else {
+      total += currentPosition;
     }
-    total += currentPosition;
   }
   return total;
 };
