@@ -25,16 +25,27 @@ var intToRoman = function (num) {
   // Look for the largest symbol that fits into map
   for (const key in romanToInt_map) {
     const keyValue = romanToInt_map[key];
-    if (num > keyValue) {
+    if (num >= keyValue) {
       romanNum.push(key);
       // substract the largest symbol value, and look for the largest symbole fits into the remainder
       num = num - keyValue;
-      // case: 3
-      if(num===2){
-        romanNum.push("II");
+      // Check if remainder === 0
+      if (num % keyValue === 0) {
+        if (num === keyValue) {
+          romanNum.push(key);
+          return romanNum.join("");
+        }
+        if (num === 2) {
+          romanNum.push("II");
+          return romanNum.join("");
+        }
+        if (num === 1) {
+          romanNum.push("I");
+          return romanNum.join("");
+        }
       }
     }
   }
   // Concatenate romanNum array elements in a string
-  return romanNum.join('');
+  return romanNum.join("");
 };
