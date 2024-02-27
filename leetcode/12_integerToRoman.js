@@ -29,6 +29,11 @@ var intToRoman = function (num) {
       romanNum.push(key);
       // substract the largest symbol value, and look for the largest symbole fits into the remainder
       num = num - keyValue;
+      // Case: 73; 
+      if (num % keyValue !== 0 && num > keyValue) {
+        romanNum.push(key);
+        num = num - keyValue;
+      }
       // Check if remainder === 0
       if (num % keyValue === 0) {
         if (num === keyValue) {
