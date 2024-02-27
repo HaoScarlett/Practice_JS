@@ -26,7 +26,7 @@ var intToRoman = function (num) {
   for (const key in romanToInt_map) {
     const keyValue = romanToInt_map[key];
     if (num > keyValue) {
-      romanNum.unshift(key);
+      romanNum.push(key);
       // substract the largest symbol value, and look for the largest symbole fits into the remainder
       num = num - keyValue;
     }
