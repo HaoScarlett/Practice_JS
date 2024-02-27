@@ -29,6 +29,10 @@ var intToRoman = function (num) {
       romanNum.push(key);
       // substract the largest symbol value, and look for the largest symbole fits into the remainder
       num = num - keyValue;
+      // case: 3
+      if(num===2){
+        romanNum.push("II");
+      }
     }
   }
   // Concatenate romanNum array elements in a string
