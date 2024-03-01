@@ -5,24 +5,42 @@
  * @param {string} magazine
  * @return {boolean}
  */
-var canConstruct = function(ransomNote, magazine) {
-    let r_pointer = 0;
-    let m_pointer = 0;
-    let canConstruct = false;
+var canConstruct = function (ransomNote, magazine) {
+  let ransomNoteStr = [...ransomNote];
+  let magazineStr = [...magazine];
 
-    if(ransomNote.length > magazine.length){
-        return canConstruct;
+  let r_pointer = 0;
+  let m_pointer = 0;
+  // 🔻 Assume it can be constructed
+  let canConstruct = true;
+
+  if (ransomNote.length > magazine.length) {
+    return false;
+  }
+
+  while (r_pointer < ransomNoteStr.length) {
+    // 🔻 Track magazine
+    let charFound = false;
+
+    // 🔻 The checking range of m_pointer is within magazine
+    while (m_pointer < magazineStr.length) {
+      // In one round, check the value
+      if (ransomNote[r_pointer] === magazineStr[m_pointer]) {
+        charFound = true;
+        magazineStr.splice(m_pointer, 1); // Remove the used character
+        break;
+      }
+      //   If no matching value found, move to the next one
+      m_pointer++;
     }
 
-    for(r_pointer; r_pointer < ransomNote.length; r_pointer++){
-        while(ransomNote[r_pointer] != magazine[m_pointer]){
-            m_pointer++;
-            if(m_pointer>magazine.length){
-                return canConstruct;
-            }
-        }
-        magazine = magazine.slice(0, m_pointer);
+    if (!charFound) {
+      canConstruct = false;
+      break;
     }
-    canConstruct = true;
-    return canConstruct;
+    // Reset the pointers
+    r_pointer++;
+    m_pointer = 0;
+  }
+  return canConstruct;
 };
