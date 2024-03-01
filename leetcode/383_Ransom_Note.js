@@ -1,0 +1,30 @@
+// 383. Ransom_Note
+
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+var canConstruct = function(ransomNote, magazine) {
+    const ransomNoteStr = ransomNote.split('');
+    const magazineStr = magazine.split('');
+    let r_pointer = 0;
+    let m_pointer = 0;
+    let canConstruct = false;
+
+    if(ransomNote.length > magazine.length){
+        return canConstruct;
+    }
+
+    for(r_pointer; r_pointer < ransomNote.length; r_pointer++){
+        while(ransomNote[r_pointer] != magazine[m_pointer]){
+            m_pointer++;
+            if(m_pointer>magazine.length){
+                return canConstruct;
+            }
+        }
+        magazine.slice(m_pointer, 1);
+    }
+    canConstruct = true;
+    return canConstruct;
+};
