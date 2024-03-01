@@ -6,8 +6,6 @@
  * @return {boolean}
  */
 var canConstruct = function(ransomNote, magazine) {
-    const ransomNoteStr = ransomNote.split('');
-    const magazineStr = magazine.split('');
     let r_pointer = 0;
     let m_pointer = 0;
     let canConstruct = false;
@@ -23,7 +21,7 @@ var canConstruct = function(ransomNote, magazine) {
                 return canConstruct;
             }
         }
-        magazine.slice(m_pointer, 1);
+        magazine = magazine.slice(0, m_pointer);
     }
     canConstruct = true;
     return canConstruct;
