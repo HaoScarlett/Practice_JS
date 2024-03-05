@@ -44,3 +44,4 @@ var canConstruct = function (ransomNote, magazine) {
   }
   return canConstruct;
 };
+// Time complexity O(n*m) Space = O(m)
