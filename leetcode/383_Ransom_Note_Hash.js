@@ -37,7 +37,6 @@ var canConstruct = function (ransomNote, magazine) {
             }
         }
   }
-  // Handling frequencies
 
   // Final check
 };
