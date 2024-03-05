@@ -20,7 +20,8 @@ var canConstruct = function (ransomNote, magazine) {
   // Checking each letter in ransomNote with Map
   for (let noteChar of ransomNote){
       // if there's no matching key, return false
-        if (freqMap.has(ransomNote[noteChar])=== false){
+      // 🧐 Bug here
+        if (freqMap.has(noteChar)=== false){
             return false;
         }
         // if there's a key correspond with the letter
@@ -37,6 +38,6 @@ var canConstruct = function (ransomNote, magazine) {
             }
         }
   }
-
   // Final check
+
 };
