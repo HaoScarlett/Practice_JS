@@ -17,12 +17,19 @@ var isIsomorphic = function (s, t) {
   for (let i = 0; i < s.length; i++) {
     for (const charT of t) {
       if (!charMap.has(s[i])) {
-        charMap.set(s[i], charT);
-        i++;
+        if (!Object.values(charMap).includes(charT)) {
+          charMap.set(s[i], charT);
+          i++;
+        } else {
+          isIsomorphic = false;
+        }
       } else {
         // key existed, check the value
         if (charMap.get(s[i]) !== charT) {
           isIsomorphic = false;
+        } else {
+          // if the value matched, move to the next char
+          i++;
         }
       }
     }
