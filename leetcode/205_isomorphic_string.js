@@ -14,13 +14,14 @@ var isIsomorphic = function (s, t) {
   let charMap = new Map();
 
   // Iterate through s
-  for (const char of s) {
+  for (let i = 0; i < s.length; i++) {
     for (const charT of t) {
-      if (!charMap.has(char)) {
-        charMap.set(char, charT);
+      if (!charMap.has(s[i])) {
+        charMap.set(s[i], charT);
+        i++;
       } else {
         // key existed, check the value
-        if (charMap.get(char) !== charT) {
+        if (charMap.get(s[i]) !== charT) {
           isIsomorphic = false;
         }
       }
