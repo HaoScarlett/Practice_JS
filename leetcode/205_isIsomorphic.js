@@ -27,3 +27,8 @@ var isIsomorphic = function (s, t) {
   }
   return true;
 };
+
+// Time: iterate through each char in both strings separately, O(n), n = str.length;
+// Space: two maps to store the mapping, O(n);
+// It should work well for small to moderate-sized inputs. 
+// For very large inputs, the linear time complexity might become a bottleneck.
