@@ -8,34 +8,33 @@ var isIsomorphic = function (s, t) {
 
   function transArray(array) {
     const map = new Map();
+    // 🔻 Instead of returning map, you should return
+    // transformedArray containing the transformed values
+    const transformedArray = [];
 
     for (let i = 0; i < array.length; i++) {
       // if it's a new char
       if (!map.has(array[i])) {
         map.set(array[i], i);
+        transformedArray.push(i);
       } else {
         // set the value of existing key as the first value
-        const existingValue = map.get(array[i]);
-        map.set(array[i], existingValue);
+        // const existingValue = map.get(array[i]);
+        // map.set(array[i], existingValue);
+        transformedArray.push(map.get(array[i]));
       }
     }
-return map;
+    return transformedArray;
     // convert the values into an array
     // const transformedArray = [...map.values()];
   }
-  const sTot = transArray(s);
-  const tTos = transArray(t);
 
-  const transformedS = [...sTot.values()];
-  const transformedT = [...tTos.values()];
+  const transformedS = transArray(s);
+  const transformedT = transArray(t);
 
-  // Compare two arrays for strict equality
-//   function arraysEqual(arr1, arr2) {
-//     if (arr1.length !== arr2.length) {
-//       return false;
-//     }
-    return transformedS.every((ele, index) => ele === transformedT[index]);
-//   }
+  return transformedS.every((ele, index) => ele === transformedT[index]);
 
-//   return arraysEqual(transformedS, transformedT);
 };
+
+//  Time: O(n), n is the length of the strings. 
+//  Space: two maps, O(n).
