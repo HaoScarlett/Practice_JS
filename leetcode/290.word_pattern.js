@@ -17,11 +17,19 @@ var wordPattern = function (pattern, s) {
   }
   // Go through the s arr and each char in pattern,
   // built a key-value pair(unique) and store it in a map.
+  //   To handle two dif keys have the same value, use set to track mapped values.
   const map = new Map();
-  // Keep track of the key-value pair, if it's re-assign to dif value, return false.
+  const mapped = new Set();
   for (let i = 0; i < sArray.length; i++) {
     if (!map.has(pattern[i])) {
+      // check if sArray[i] is already mapped
+      if (mapped.has(sArray[i])) {
+        return false;
+      }
+      // Keep track of the key-value pair, if it's re-assign to dif value, return false.
       map.set(pattern[i], sArray[i]);
+      //   note new value
+      mapped.add(sArray[i]);
     } else {
       if (map.get(pattern[i]) !== sArray[i]) {
         return false;
