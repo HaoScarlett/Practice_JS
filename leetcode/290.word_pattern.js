@@ -12,7 +12,7 @@ var wordPattern = function (pattern, s) {
   // ["dog", "cat", "cat", "dog"]
   const sArray = s.split(" ");
   // Handle the edge case
-  if (pattern.length !== s.length) {
+  if (pattern.length !== sArray.length) {
     return false;
   }
   // Go through the s arr and each char in pattern,
@@ -20,10 +20,10 @@ var wordPattern = function (pattern, s) {
   const map = new Map();
   // Keep track of the key-value pair, if it's re-assign to dif value, return false.
   for (let i = 0; i < sArray.length; i++) {
-    if (!map.has(s[i])) {
-      map.set(s[i], sArray[i]);
+    if (!map.has(pattern[i])) {
+      map.set(pattern[i], sArray[i]);
     } else {
-      if (map.s[i] !== sArray[i]) {
+      if (map.get(pattern[i]) !== sArray[i]) {
         return false;
       }
     }
