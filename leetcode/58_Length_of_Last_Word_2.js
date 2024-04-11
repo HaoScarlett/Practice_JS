@@ -6,12 +6,12 @@
 var lengthOfLastWord = function (s) {
   let sModified = s.trimEnd();
 
-  for (let i = sModified.length - 1; i > 0; i--) {
-    // Handle the edge case: only one word
-    if (!sModified.includes(" ")) {
-      return sModified.length;
-    }
+  // Handle the edge case: only one word or one char
+  if (sModified.includes(" ") === false) {
+    return sModified.length;
+  }
 
+  for (let i = sModified.length - 1; i > 0; i--) {
     if (sModified[i] !== " " && sModified[i - 1] === " ") {
       return sModified.substring(i).length;
     }
