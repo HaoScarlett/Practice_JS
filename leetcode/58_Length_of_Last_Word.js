@@ -24,6 +24,6 @@ var lengthOfLastWord = function (s) {
     }
   }
 
-  let substring = s.slice(indexStart, indexEnd);
+  let substring = s.slice(-indexStart, -indexEnd);
   return substring.length;
 };
