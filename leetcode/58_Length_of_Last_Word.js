@@ -15,12 +15,12 @@ var lengthOfLastWord = function (s) {
   for (let i = s.length - 1; i > 0; i--) {
     // check if the first space after the last word
     if (s[i] === " " && s[i-1] !== " ") {
-        indexEnd = i * -1;
+        indexEnd = i;
     }
 
     // search for the next valid space
     if (s[i] !== " " && s[i - 1] === " ") {
-        indexStart = (i - 1) * -1;
+        indexStart = i;
         break;
     }
   }
