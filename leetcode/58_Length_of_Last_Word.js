@@ -20,7 +20,8 @@ var lengthOfLastWord = function (s) {
 
     // search for the next valid space
     if (s[i] !== " " && s[i - 1] === " ") {
-      indexStart = i;
+        indexStart = (i - 1) * -1;
+        break;
     }
   }
 
