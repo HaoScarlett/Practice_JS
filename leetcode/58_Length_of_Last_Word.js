@@ -13,9 +13,9 @@ var lengthOfLastWord = function (s) {
   let indexStart;
 
   for (let i = s.length - 1; i > 0; i--) {
-    // the first char is " "
-    if (s[i] === " ") {
-      indexEnd = i;
+    // check if the first space after the last word
+    if (s[i] === " " && s[i-1] !== " ") {
+        indexEnd = i * -1;
     }
 
     // search for the next valid space
