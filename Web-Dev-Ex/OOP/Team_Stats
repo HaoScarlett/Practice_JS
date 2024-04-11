@@ -1,0 +1,44 @@
+const team = {
+  _players: [
+    { firstName: "Player1", lastName: "Lastname1", age: 20 },
+    { firstName: "Player2", lastName: "Lastname2", age: 30 },
+    { firstName: "Player3", lastName: "Lastname3", age: 40 },
+  ],
+  _games: [
+    { opponent: "team1", teamPoints: 3, opponentPoints: 2 },
+    { opponent: "team2", teamPoints: 5, opponentPoints: 7 },
+    { opponent: "team3", teamPoints: 8, opponentPoints: 9 },
+  ],
+
+  // Getter method
+  get players() {
+    return this._players;
+  },
+
+  get games() {
+    return this._games;
+  },
+
+  addPlayer(newFirstName, newLastName, newAge) {
+    const player = {
+      firstName: newFirstName,
+      lastName: newLastName,
+      age: newAge,
+    };
+    this._players.push(player);
+    console.log(this._players);
+  },
+
+  addGame(newOpponent, newTeamPoints, newOpponentPoints) {
+    const game = {
+      opponent: newOpponent,
+      teamPoints: newTeamPoints,
+      opponentPoints: newOpponentPoints,
+    };
+    this._games.push(game);
+    console.log(this._games);
+  },
+};
+
+team.addPlayer("Bugs", "Bunny", 76);
+team.addGame('Titans', 100, 98);
