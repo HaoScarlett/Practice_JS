@@ -14,11 +14,11 @@
 var twoSum = function (nums, target) {
   // Create a map to note the key-value pairs for further search
   const numsMap = new Map();
-//   for (let i = 0; i < nums.length; i++) {
-//     if (!numsMap.has(nums[i])) {
-//       numsMap.set(nums[i], i);
-//     }
-//   }
+  //   for (let i = 0; i < nums.length; i++) {
+  //     if (!numsMap.has(nums[i])) {
+  //       numsMap.set(nums[i], i);
+  //     }
+  //   }
 
   // Iterate through the nums, find each num's complement,
   // Search the complement in the rest num to find if there's a matching num
@@ -29,8 +29,8 @@ var twoSum = function (nums, target) {
       // if complement exists, use the indices from the hash map and the current index
       return [numsMap.get(complement), j];
     } else {
-        // if complement dosen't exist, add the current ele and its index to the hash map
-        numsMap.set(nums[j], j);
+      // if complement dosen't exist, add the current ele and its index to the hash map
+      numsMap.set(nums[j], j);
     }
   }
 };
