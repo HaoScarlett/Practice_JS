@@ -18,7 +18,7 @@ var isHappy = function (n) {
       (partialSum, currentNum) => partialSum + currentNum,
       0
     );
-    // 🔸 const correntSum = digits.reduce((sum,digit) => sum + digit ** 2, 0);
+    // 🔸 const currentSum = digits.reduce((sum,digit) => sum + digit ** 2, 0);
 
     // detect the cycle first
     if (sumCalculated.has(currentSum)) {
