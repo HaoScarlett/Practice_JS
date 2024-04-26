@@ -5,32 +5,27 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
-  // split the number into its individual digits
-  // const digits = n.toString().split('').map(Number);
-
-  // use pointer to keep track every digit, when computation is done, update the pointers
-  // use hash map to keep track of each sum. If a repeated sum exists, it indicates the
-  // sequence has entered a cycle, return false.
   const sumCalculated = new Set();
 
   while (n !== 1) {
+    // // split the number into its individual digits
     // n = 19 digits = [1,9]
     const digits = n.toString().split("").map(Number);
     // currentSumArray = [1, 81]
-    const currentSumArray = digits.map((Number) => Number ** 2);
+    const currentSumArray = digits.map((digit) => digit ** 2);
     // 1 + 81 = 82
     const currentSum = currentSumArray.reduce(
       (partialSum, currentNum) => partialSum + currentNum,
       0
     );
-    // if currentSum isn't in sumCalculated, add it
-    if (!sumCalculated.has(currentSum)) {
-      sumCalculated.add(currentSum);
-      n = currentSum;
-    } else {
-        return false;
-        break;
+    // 🔸 const correntSum = digits.reduce((sum,digit) => sum + digit ** 2, 0);
+
+    // detect the cycle first
+    if (sumCalculated.has(currentSum)) {
+      return false;
     }
+    sumCalculated.add(currentSum);
+    n = currentSum; // update n to the new sum
   }
-  return true;
+  return true; // the number is happy when we reached 1
 };
