@@ -31,6 +31,6 @@ var isHappy = function (n) {
         return false;
         break;
     }
-    return true;
   }
+  return true;
 };
