@@ -13,7 +13,7 @@ var isHappy = function (n) {
   // sequence has entered a cycle, return false.
   const sumCalculated = new Set();
 
-  while (!n === 1) {
+  while (n !== 1) {
     // n = 19 digits = [1,9]
     const digits = n.toString().split("").map(Number);
     // currentSumArray = [1, 81]
@@ -26,6 +26,7 @@ var isHappy = function (n) {
     // if currentSum isn't in sumCalculated, add it
     if (!sumCalculated.has(currentSum)) {
       sumCalculated.add(currentSum);
+      n = currentSum;
     } else {
         return false;
         break;
