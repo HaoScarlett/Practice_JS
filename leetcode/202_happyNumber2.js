@@ -17,8 +17,10 @@ var isHappy = function (n) {
   //   Initialize two pointers
   let slow = n;
   let fast = getNextNum(n);
-  while (fast !== slow) {
-    
+  while (fast !== 1 && fast !== slow) {
+    slow = getNextNum(slow);
+    let nextNode = getNextNum(fast); // fast move two steps at a time
+    fast = getNextNum(nextNode);
   }
-  return true;
+  return fast === 1;
 };
