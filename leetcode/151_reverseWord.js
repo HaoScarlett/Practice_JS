@@ -5,9 +5,10 @@
  */
 var reverseWords = function (s) {
   const arrOfWords = s.trim().split(" ");
-  const filteredArr = arrOfWords.filter((word) => (word !== ""));
-//   console.log(arrOfWords);
-//   console.log(filteredArr);
+  const filteredArr = arrOfWords.filter((word) => word !== "");
+  //   console.log(arrOfWords);
+  //   console.log(filteredArr);
+  /* let words = s.split(/\s+/).reverse(); */
   return filteredArr.reverse().join(" ");
 };
 
