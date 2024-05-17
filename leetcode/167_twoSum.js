@@ -14,6 +14,6 @@ var twoSum = function (numbers, target) {
     } else if (numbers[index1] + numbers[index2] < target) {
       index1++;
     }
-    return [index1, index2];
   }
+  return [index1 + 1, index2 + 1];
 };
