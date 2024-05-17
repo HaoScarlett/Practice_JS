@@ -4,6 +4,16 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(numbers, target) {
-    
+var twoSum = function (numbers, target) {
+  let index1 = 0;
+  let index2 = 1;
+  let sum = numbers[index1] + numbers[index2];
+
+  while (sum !== target) {
+    if (index2 < numbers.length) {
+      index2++;
+    }
+    index1++;
+  }
+  return [index1, index2];
 };
