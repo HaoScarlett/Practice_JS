@@ -14,8 +14,6 @@ var convert = function(s, numRows) {
     // Iterate through the s, every pattern repeat in every 2*(s.length - 1)
     // Keep track of the turning point to change the direction. Move the pointer to 
     // the right row
-    while(let i < s.length){
-        
-    }
+    let 
 
 };
