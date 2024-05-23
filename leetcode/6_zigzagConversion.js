@@ -19,7 +19,7 @@ var convert = function (s, numRows) {
 
   while (i < s.length) {
     // in every pattern, turning point is 
-    if (directionTrack = numRows) {
+    if (directionTrack < numRows) {
       subStrings[i] = s[i];
       i++;
       directionTrack++;
