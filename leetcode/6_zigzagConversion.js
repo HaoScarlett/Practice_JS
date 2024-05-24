@@ -22,18 +22,21 @@ var convert = function (s, numRows) {
 
   // loop through the s and append it to the current row
   for (let i = 0; i < s.length; i++) {
-    rows[currentRow] = rows[currentRow].concat(s[i]);
-    currentRow++;
-    if (currentRow === numRows - 1) {
-      goingDown = false;
+    if (goingDown === true) {
+      rows[currentRow] = rows[currentRow].concat(s[i]);
+      currentRow++;
+      if (currentRow === numRows - 1) {
+        goingDown = false;
+      }
     }
 
     if (goingDown === false) {
-      rows[currentRow - 2] = rows[currentRow - 2].concat(s[i]);
+      currentRow = currentRow - 1;
+      rows[currentRow] = rows[currentRow].concat(s[i]);
       // adjust the two pointers as per the zigzag rules
       // if currentRow = 0, re-start next zigzag pattern
-      if ((i % 2) * (numRows - 1)) {
-        currentRow = 0;
+      if (currentRow === 0) {
+        // currentRow = 0;
         goingDown = true;
       }
     }
