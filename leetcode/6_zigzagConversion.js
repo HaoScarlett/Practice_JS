@@ -9,7 +9,7 @@
 // numRows > s.length
 var convert = function (s, numRows) {
   // handle edge cases
-  if (s.length === 1 || numRows >= s.length) {
+  if (s.length <= numRows || numRows === 1) {
     return s;
   }
 
@@ -18,30 +18,24 @@ var convert = function (s, numRows) {
 
   //initialize a pointer to track the current row and a tracker to determine the direction
   let currentRow = 0;
-  let goingDown = true;
+  let goingDown = false;
 
   // loop through the s and append it to the current row
   let index = 0;
   while (index < s.length) {
     // Append the current char to the current row
-      rows[currentRow] = rows[currentRow].concat(s[index]);
-      index++;
-      currentRow++;
+    rows[currentRow] += s[index];
 
-    // detect whether the currentRow reach the buttom
-    if (currentRow === numRows - 1) {
-      goingDown = false;
+    // detect whether the currentRow reach the turning point
+    // adjust the direction
+    if (currentRow === 0 || currentRow === numRows - 1) {
+      goingDown = !goingDown;
     }
 
-    if (goingDown === false) {
-      currentRow = currentRow - 1;
-      rows[currentRow] = rows[currentRow].concat(s[index]);
-      index++;
-    }
+    // move up or down based on direction
+    goingDown ? currentRow++ : currentRow--;
 
-    if (currentRow === 0) {
-      goingDown = true;
-    }
+    index++;
   }
 
   // join all strings in 'rows'
