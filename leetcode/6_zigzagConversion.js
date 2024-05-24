@@ -17,18 +17,19 @@ var convert = function (s, numRows) {
   const rows = Array(numRows).fill("");
 
   //initialize a pointer to track the current row and a tracker to determine the direction
-  const currentRow = 0;
-  const goingDown = true;
+  let currentRow = 0;
+  let goingDown = true;
 
   // loop through the s and append it to the current row
   for (let i = 0; i < s.length; i++) {
-    rows[i] = rows[i].concat(s[i]);
-    if (currentRow === numRows) {
+    rows[currentRow] = rows[currentRow].concat(s[i]);
+    currentRow++;
+    if (currentRow === numRows - 1) {
       goingDown = false;
     }
 
     if (goingDown === false) {
-      rows[i - 2] = rows[i - 2].concat(s[i]);
+      rows[currentRow - 2] = rows[currentRow - 2].concat(s[i]);
       // adjust the two pointers as per the zigzag rules
       // if currentRow = 0, re-start next zigzag pattern
       if ((i % 2) * (numRows - 1)) {
