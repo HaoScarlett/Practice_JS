@@ -14,25 +14,23 @@ var convert = function (s, numRows) {
   // Iterate through the s, every pattern repeat in every 2*(s.length - 1)
   // Keep track of the turning point to change the direction. Move the pointer to
   // the right row
-  let i = 0;
-  let directionTrack = 0;
+  let index = 0;
+  let directionTrack = false;
 
-  while (i < s.length) {
+  while (index < s.length) {
     // in every pattern, turning point is 
-    if (directionTrack < numRows) {
-      subStrings[i] = s[i];
-      i++;
-      directionTrack++;
-    } else if (directionTrack === numRows) {
+    if (index < numRows) {
+      subStrings[] = s[i];
+      index++;
+    } else if (index === numRows) {
         subStrings[numRows] = s[i];
         i++;
-        directionTrack++;
-    } else if (directionTrack > numRows) {
+        directionTrack = true;
+    } else if (index > numRows) {
         subStrings[i - 1] = s[i];
         i--;
-        directionTrack++;
-        if(directionTrack  === 2*(s.length - 1)){
-            directionTrack = 0;
+        if(index  === 2*(s.length - 1)){
+            directionTrack = true;
         }
     }
   }
