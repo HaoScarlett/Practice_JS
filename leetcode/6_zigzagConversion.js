@@ -33,6 +33,7 @@ var convert = function (s, numRows) {
     }
 
     // move up or down based on direction
+    // currentRow += goingDown ? 1 : -1;
     goingDown ? currentRow++ : currentRow--;
 
     index++;
