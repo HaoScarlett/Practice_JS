@@ -30,7 +30,7 @@ var isValid = function (s) {
       // if it's an closing bracket, check if it matches the previous one
       // match: pop the previous one
       // no match: return false
-      
+      if ()
     }
   }
 };
