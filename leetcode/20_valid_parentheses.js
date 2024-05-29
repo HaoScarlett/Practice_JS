@@ -10,17 +10,27 @@ var isValid = function (s) {
     return false;
   }
 
+  // create brackets pairs
+  const bracketsPairs = {
+    "(": ")",
+    "{": "}",
+    "[": "]",
+  };
+
   const input = Array(length).fill("");
 
   let i = 0; // pointer
-  let left = 0 // count the opening bracket
-  while (i < length) {
-    input[i] = s[i];
-    if(s[i] === "(" || s[i] === "[" || s[i] === "{"){
-      left++;
-    }
-    i++;
-  }
-  
 
+  for (const char of s) {
+    if (char === "(" || char === "{" || char === "[") {
+      // if it's an opening bracket, push it to the array
+      input.push(char);
+    }
+    if(char === ")" || char === "}" || char === "]"){
+      // if it's an closing bracket, check if it matches the previous one
+      // match: pop the previous one
+      // no match: return false
+      
+    }
+  }
 };
