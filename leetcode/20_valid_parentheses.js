@@ -13,10 +13,14 @@ var isValid = function (s) {
   const input = Array(length).fill("");
 
   let i = 0; // pointer
+  let left = 0 // count the opening bracket
   while (i < length) {
     input[i] = s[i];
+    if(s[i] === "(" || s[i] === "[" || s[i] === "{"){
+      left++;
+    }
     i++;
   }
   
-  
+
 };
