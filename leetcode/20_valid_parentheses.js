@@ -14,23 +14,9 @@ var isValid = function (s) {
 
   let i = 0; // pointer
   while (i < length) {
-    if (i % 2 !== 0) {
-      if (s[i] === "[" || s[i] === "{" || s[i] === "(") {
-        return false;
-      }
-    }
     input[i] = s[i];
-    if (input[i] === input[i - 1]) {
-      return false;
-    }
-    if (s[i] === ")" && input[i - 1] !== "(") {
-      return false;
-    } else if (s[i] === "]" && input[i - 1] !== "[") {
-      return false;
-    } else if (s[i] === ")" && input[i - 1] !== "(") {
-      return false;
-    }
     i++;
   }
-  return true;
+  
+  
 };
