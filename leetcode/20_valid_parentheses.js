@@ -5,9 +5,6 @@
  */
 var isValid = function (s) {
   // last in, first out
-  if (s.length === 1 || s.length % 2 !== 0) {
-    return false;
-  }
 
   // create brackets pairs
   const bracketsPairs = {
@@ -16,7 +13,7 @@ var isValid = function (s) {
     "]": "[",
   };
 
-  const input = Array(s.length).fill("");
+  const input = [];
 
   for (const char of s) {
     if (char === "(" || char === "{" || char === "[") {
