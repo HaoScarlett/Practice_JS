@@ -4,7 +4,6 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-  // last in, first out
 
   // create brackets pairs
   const bracketsPairs = {
@@ -13,24 +12,23 @@ var isValid = function (s) {
     "]": "[",
   };
 
-  const input = [];
+  const stack = [];
 
   for (const char of s) {
     if (char === "(" || char === "{" || char === "[") {
-      // if it's an opening bracket, push it to the array
-      input.push(char);
+      // if the char is an opening bracket, push it onto the stack
+      stack.push(char);
     }
-    if (char === ")" || char === "}" || char === "]") {
-      // if it's an closing bracket, check if it matches last value in the stack
-      // no match: return false
-      if (input.length === 0 || input.pop() !== bracketsPairs[char]) {
+    // if the char is a closing bracket
+    else if (char === ")" || char === "}" || char === "]") {
+      // check if the stack if empty or 
+      // the top of the stack doesn't match the bracket pair
+      if (stack.length === 0 || stack.pop() !== bracketsPairs[char]) {
         return false;
       }
     }
   }
-  if (input.length !== 0) {
-    return false;
-  }
-  return true;
-  // return input.length === 0;
+  // if the stack is empty, all brackets were matched correctly
+  // or there are unmatched opening brackets remaining
+  return stack.length === 0;
 };
