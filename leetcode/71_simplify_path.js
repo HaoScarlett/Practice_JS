@@ -21,6 +21,7 @@ var simplifyPath = function (path) {
     if (name !== "" || name !== "." || name !== "..") {
       stack.push(name);
     }
+    // pop 'a/..'
   }
 
   // rebuild the path
