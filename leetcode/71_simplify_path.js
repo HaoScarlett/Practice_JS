@@ -16,7 +16,7 @@ var simplifyPath = function (path) {
   // use a stack to store valid segments
   // push the valid directory names
   // pop the invalid '..' if the stack is not empty
-  const stack = ["/"];
+  const stack = [];
   let i = 0;
   while (i < pathSegments.length) {
     if (pathSegments[i] === "" || pathSegments[i] === ".") {
@@ -36,7 +36,7 @@ var simplifyPath = function (path) {
   // pop last '/'
 
   // rebuild the path
-  return stack.join("/");
+  return "/".concat(stack.join("/"));
 };
 
 // simplifyPath("/a/./b/../../c/");
