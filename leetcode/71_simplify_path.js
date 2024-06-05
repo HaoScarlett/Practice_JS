@@ -17,12 +17,23 @@ var simplifyPath = function (path) {
   // push the valid directory names
   // pop the invalid '..' if the stack is not empty
   const stack = ["/"];
-  for (const name of pathSegments) {
-    if (name !== "" || name !== "." || name !== "..") {
-      stack.push(name);
+  let i = 0;
+  while (i < pathSegments.length) {
+    if (pathSegments[i] === "" || pathSegments[i] === ".") {
+      i++;
+    } else if (pathSegments[i] === "..") {
+      if (i === 1) {
+        stack.pop(pathSegments[i]);
+      }
+      i++;
+    } else {
+      stack.push(pathSegments[i]);
+      i++;
     }
-    // pop 'a/..'
   }
+  // pop 'a/..'
+
+  // pop last '/'
 
   // rebuild the path
   return stack.join("/");
