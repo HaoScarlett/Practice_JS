@@ -33,9 +33,7 @@ var simplifyPath = function (path) {
       i++;
     }
   }
-  // pop 'a/..'
 
-  // pop last '/'
 
   // rebuild the path
   return "/".concat(stack.join("/"));
