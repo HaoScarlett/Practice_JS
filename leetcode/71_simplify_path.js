@@ -22,7 +22,7 @@ var simplifyPath = function (path) {
     if (pathSegments[i] === "" || pathSegments[i] === ".") {
       i++;
     } else if (pathSegments[i] === "..") {
-      if (stack.length > 1) {
+      if (stack.length >= 1) {
         stack.pop();
         i++;
       } else {
