@@ -11,7 +11,6 @@ var simplifyPath = function (path) {
   // '..' if there's a previous segment, remove it. if it's at root, igore it
   // '...' 'a' are valid directory names
   const pathSegments = path.split("/");
-  //   console.log(pathSegments)
 
   // use a stack to store valid segments
   // push the valid directory names
@@ -33,10 +32,7 @@ var simplifyPath = function (path) {
       i++;
     }
   }
-
-
   // rebuild the path
   return "/".concat(stack.join("/"));
 };
 
-// simplifyPath("/a/./b/../../c/");
