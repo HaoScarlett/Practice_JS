@@ -10,9 +10,6 @@ var simplifyPath = function (path) {
     } else if (dir === "..") {
       if (stack.length !== 0) {
         stack.pop();
-        continue;
-      } else {
-        continue;
       }
     } else {
       stack.push(dir);
