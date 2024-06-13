@@ -6,12 +6,12 @@
  * @return {Promise}
  */
 var addTwoPromises = async function (promise1, promise2) {
-  let value1 = 0;
-  let value2 = 0;
-  promise1.then((value) => (value1 = value));
-  promise2.then((value) => (value2 = value));
-
-  return value1 + value2;
+  try {
+    return (await promise1) + (await promise2);
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 };
 
 /**
