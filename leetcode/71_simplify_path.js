@@ -36,3 +36,4 @@ var simplifyPath = function (path) {
   return "/".concat(stack.join("/"));
 };
 
+// continue statement
