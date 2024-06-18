@@ -8,9 +8,10 @@
 /* - a task fn to do, wait for t ms; use cancelFn to cancel before excution */
 
 var cancellable = function (fn, args, t) {
-  const timerId = setTimeout(fn, t);
-  fn.apply(null, args);
-  const cancelFn = () => {
+  const timerId = setTimeout(function () {
+    fn.apply(null, args);
+  }, t);
+  const cancelFn = function () {
     clearTimeout(timerId);
   };
   return cancelFn;
