@@ -40,7 +40,7 @@ class MinStack {
    * @return {number}
    */
   top() {
-    return this.stack[this.stack.length - 1];
+    return this.minStack[this.minStack.length - 1];
   }
   /**
    * @return {number}
