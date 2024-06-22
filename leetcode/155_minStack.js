@@ -16,7 +16,10 @@ class MinStack {
     this.stack.push(val);
     // if the minStack is empty or the pushed value is less or equal to the top
     // of the minStack, push val onto Minstack as wee
-    if (this.minStack.length === 0 || val <= this.minStack.top()) {
+    if (
+      this.minStack.length === 0 ||
+      val <= this.minStack[this.minStack.length - 1]
+    ) {
       this.minStack.push(val);
     }
   }
@@ -27,9 +30,9 @@ class MinStack {
     if (this.stack.length === 0) {
       return;
     }
-    this.stack.pop();
+    const removedValue = this.stack.pop();
     // if the poped value is equal to the top of the minStack, pop from minStack as well
-    if (this.stack.pop() === this.minStack.top()) {
+    if (removedValue === this.minStack[this.minStack.length - 1]) {
       this.minStack.pop();
     }
   }
@@ -37,16 +40,14 @@ class MinStack {
    * @return {number}
    */
   top() {
-    if (this.stack.length === 0) {
-      return;
-    }
-    return this.stack.pop();
+    return this.stack[this.stack.length - 1];
   }
   /**
    * @return {number}
    */
   getMin() {
-    return this.minStack.pop();
+    // without changing the length of this.stack
+    return this.minStack[this.stack.length - 1];
   }
 }
 
