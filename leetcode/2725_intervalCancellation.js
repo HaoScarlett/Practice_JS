@@ -8,9 +8,10 @@
 
 // setInterval: it runs the fn regularly starting after the interval of time
 var cancellable = function (fn, args, t) {
-  let timerId = setInterval(() => {
-    fn(...args);
-  }, t);
+//   let timerId = setInterval(() => {
+//     fn(...args);
+//   }, t);
+let timerId
   const cancelFn = () => {
     clearInterval(timerId);
   };
