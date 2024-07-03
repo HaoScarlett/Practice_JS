@@ -7,7 +7,11 @@ Insertion removal random all O(1)
 */
 class RandomizedSet {
   constructor() {
+    // store the actual ele in the "RS". retrieval of an ele in O(1)
     this.list = []; 
+    // Dictionary to store the ele-to-index mapping
+    // map each value to its index in the array. 
+    // O(1): insertion and deletion by providing direct access to the ele's position in the array
     this.dict = {};
   }
   /**
