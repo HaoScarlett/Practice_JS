@@ -21,11 +21,12 @@ var productExceptSelf = function (nums) {
     let accSuff = 1;
     for(let j = nums.length - 1; j >= 0; j--){
         accSuff = accSuff * nums[j];
-        suffixArr.push(accSuff)
+        suffixArr.unshift(accSuff)
     }
-    // suffixArr = [4,12,24,24]
-    
+    // suffixArr = [24,24,12,4]
+
     // products calculation
+    // for each index pre up to i-1 * suf starting from i+1
 };
 
 
