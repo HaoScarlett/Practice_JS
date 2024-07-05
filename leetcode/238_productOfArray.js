@@ -15,9 +15,16 @@ var productExceptSelf = function (nums) {
         prefixArr.push(acc);
     }
     // prefixArr = [1,2,6,24]
-    
-    // create suffix array
 
+    // create suffix array
+    const suffixArr = [];
+    let accSuff = 1;
+    for(let j = nums.length - 1; j >= 0; j--){
+        accSuff = accSuff * nums[j];
+        suffixArr.push(accSuff)
+    }
+    // suffixArr = [4,12,24,24]
+    
     // products calculation
 };
 
