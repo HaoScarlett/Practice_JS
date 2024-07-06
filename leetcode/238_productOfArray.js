@@ -31,12 +31,13 @@ var productExceptSelf = function (nums) {
         if (t - 1 < 0) {
             result.push(suffixArr[t])
         }
-        if (t + 1 >= nums.length) {
-            result.push(prefixArr[t])
+        else if (t + 1 >= nums.length) {
+            result.push(prefixArr[t-1])
+        } else {
+            result.push(prefixArr[t - 1] * suffixArr[t + 1]);
         }
-        result.push(prefixArr[t] * suffixArr[t]);
     }
-    
+
     return result;
 };
 
