@@ -7,7 +7,7 @@ var productExceptSelf = function (nums) {
     let acc = 1;
     for (let i = 0; i < nums.length; i++) {
         acc = acc * nums[i];
-        result.push(acc)
+        result[i] = acc;
     }
 
     // Traverse the nums from right to left to compute the suffix value
