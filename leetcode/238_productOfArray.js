@@ -42,4 +42,9 @@ var productExceptSelf = function (nums) {
 };
 
 
+// Time complexity: O(N)
+// You are using additional space for the prefix and suffix arrays,
+// Can you think a way using O(1)(excluding the ouput array) space?
 
+// Can you calculate the product of elements in a single pass without
+// using two separate loops? 
