@@ -29,7 +29,7 @@ var productExceptSelf = function (nums) {
     // for each index pre up to i-1 * suf starting from i+1
     for (let t = 0; t < nums.length; t++) {
         if (t - 1 < 0) {
-            result.push(suffixArr[t])
+            result.push(suffixArr[t+1])
         }
         else if (t + 1 >= nums.length) {
             result.push(prefixArr[t-1])
