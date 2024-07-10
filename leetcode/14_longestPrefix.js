@@ -4,7 +4,10 @@
  * @return {string}
  */
 var longestCommonPrefix = function(strs) {
-    
+    let charIndex = 0;
+    for (const strIndex of strs) {
+        if(strs[strIndex])
+    }
 };
 
 // Constraints:
