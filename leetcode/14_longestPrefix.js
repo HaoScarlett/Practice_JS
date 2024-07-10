@@ -7,7 +7,7 @@ var longestCommonPrefix = function (strs) {
     if (strs.length === 0 || strs === "") {
         return "";
     }
-    let charIndex = 0;
+    let prefix = strs[0];
     const output = [];
     for (let strIndex = 0; strIndex < strs.length; strIndex++) {
         // if root node is different, then there's no common prefix
