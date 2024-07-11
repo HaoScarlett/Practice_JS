@@ -9,25 +9,12 @@ var longestCommonPrefix = function (strs) {
     }
     let prefix = strs[0];
     const output = [];
-    for (let strIndex = 0; strIndex < strs.length; strIndex++) {
-        // if root node is different, then there's no common prefix
-        if (strs[strIndex][charIndex] !== strs[strIndex + 1][charIndex]) {
-            if (output.length === 0) {
-                return "";
-            } else {
-                return output.join('');
-            }
-        } else {
-            // if root nodes are the same, then move to the next root node
-            if (strIndex < strs.length - 2) {
-                continue; // stops statement execution and goes to the next iteration
-            } else {
-                output.push(strs[strIndex][charIndex]);
-                strIndex = 0; // reset the pointer
-                charIndex++;
-            }
-
-        }
+    for (let i = 0; i < strs.length; i++) {
+        // compare the current prefix with each string in the array
+        while (strs[i].indexOf(prefix) !== 0) {
+            
+        } 
+        
     }
 };
 
@@ -37,4 +24,6 @@ var longestCommonPrefix = function (strs) {
 // 0 <= strs[i].length <= 200
 // strs[i] consists of only lowercase English letters.
 
-// Trie 
+// const array = [2, 9, 9];
+// array.indexOf(2); // 0
+// array.indexOf(7); // -1
