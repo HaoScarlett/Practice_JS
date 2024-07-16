@@ -8,14 +8,17 @@ var longestCommonPrefix = function (strs) {
         return "";
     }
     let prefix = strs[0];
-    const output = [];
     for (let i = 0; i < strs.length; i++) {
-        // compare the current prefix with each string in the array
+        // check if the current string starts with the prefix
         while (strs[i].indexOf(prefix) !== 0) {
-            
-        } 
-        
+            prefix = prefix.substring(0, prefix.length - 1)
+            // if prefix is an empty string
+            if (prefix === '') {
+                return ''
+            }
+        }
     }
+    return prefix;
 };
 
 // Constraints:
