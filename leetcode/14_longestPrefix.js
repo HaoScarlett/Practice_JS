@@ -30,3 +30,15 @@ var longestCommonPrefix = function (strs) {
 // const array = [2, 9, 9];
 // array.indexOf(2); // 0
 // array.indexOf(7); // -1
+
+/* Time complexity : O(S) , where S is the sum of all characters in all strings.
+
+In the worst case all n strings are the same. The algorithm compares the string S1 with the other strings [S 
+2
+​
+ …S 
+n
+​
+ ] There are S character comparisons, where S is the sum of all characters in the input array.
+
+Space complexity : O(1). We only used constant extra space. */
