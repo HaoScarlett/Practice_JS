@@ -6,28 +6,30 @@
  * @return {number}
  */
 var strStr = function (haystack, needle) {
-    let firstIndex = null;
-    const needlePointer = 0;
-    const haystackPointer = 0;
-    let index = 0; {
-        while (haystackPointer < haystack.length) {
-            if (haystack[haystackPointer] !== needle[needlePointer]) {
-                haystackPointer++;
-                if (haystackPointer === haystack.length) {
-                    return -1;
-                }
+    let occIndexes = [];
+    let needlePointer = 0;
+    let haystackPointer = 0;
+    const needleLength = needle.length;
+    const haystackLength = haystack.length;
+
+    while (haystackPointer < haystackLength) {
+        if (haystack[haystackPointer] !== needle[needlePointer]) {
+            haystackPointer++;
+            if (haystackPointer === haystackLength) {
+                return -1;
             }
-            if (haystack[haystackPointer === needle[needlePointer]]) {
-                haystackPointer++;
-                needlePointer++;
-                if (needlePointer === needle.length) {
-                    return haystackPointer - needle.length + 1;
-                }
-                if (haystack[haystackPointer] !== needle[needlePointer]) {
-                    return -1;
-                }
+        }
+        if (haystack[haystackPointer] === needle[needlePointer]) {
+            occIndexes.push(haystackPointer);
+            haystackPointer++;
+            needlePointer++;
+            if (needlePointer === needleLength) {
+                return occIndexes[0];
             }
-            return haystackPointer - needle.length + 1;
+        }
+        if (haystack[haystackPointer] !== needle[needlePointer] && needlePointer < needleLength) {
+            return -1;
         }
     }
+    return occIndexes[0];
 };
