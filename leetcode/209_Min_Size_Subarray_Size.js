@@ -16,18 +16,15 @@ var minSubArrayLen = function (target, nums) {
     for (let right = 0; right < nums.length; right++) {
         sum = sum + nums[right];
 
-        // if sum >= target
         while (sum >= target) {
-            // check the minLength 
-            if (right - left + 1 < minLength) {
-                minLength = right - left + 1;
-            }
-            sum = sum - nums[left]
-            if (sum < target) {
-                break;
-            }
+            // check the minLength
+            minLength = Math.min(minLength, right - left + 1);
+            sum -= nums[left]
             left++;
         }
     }
     return minLength !== Infinity ? minLength : 0;
 };
+/* Time complexity: O(n)
+   Space complexity: O(1)
+*/
