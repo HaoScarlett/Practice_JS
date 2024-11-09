@@ -6,19 +6,14 @@ class Solution:
         if len(nums) == 0:
             return 0
         
-        k = 0
-        list_end = len(nums) - 1
-        i = 0
-        while i < len(nums):
-            if nums[i] == val:
-                nums[i] = nums[list_end]
-                nums[list_end] = " "
-                k += 1
-                list_end -= 1;
-                i = 0;
-            elif nums[i] == " ":
-                return k
+        slow = 0
+        fast = 0
+        
+        while fast < len(nums):
+            if nums[fast] == val:
+                fast += 1
             else:
-                i += 1
-                
-        return k
+                nums[slow] = nums[fast]
+                fast += 1
+                slow += 1
+        return slow
