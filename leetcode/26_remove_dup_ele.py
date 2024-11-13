@@ -3,6 +3,14 @@
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
+        if not nums: return 0
+        if len(nums) == 1: return 1
+    
+    # Validate sorting
+        if any(nums[i] > nums[i+1] for i in range(len(nums)-1)):
+            raise ValueError("Array must be sorted")
+
+
         # insert index, check index
         insert_index = 1
 
