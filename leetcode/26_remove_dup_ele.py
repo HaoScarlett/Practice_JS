@@ -3,6 +3,15 @@
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
+        """
+        Removes duplicates in-place from sorted array.
+        Args:
+            nums: Sorted array of integers
+        Returns:
+            Number of unique elements
+        Example:
+            [1,1,2] -> returns 2, nums becomes [1,2,_]
+        """
         if not nums: return 0
         if len(nums) == 1: return 1
     
